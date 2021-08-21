@@ -1,0 +1,12 @@
+.container {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 35px;
+  font-style: italic;
+  color: #0a2e70;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgb(79, 61, 236);
+}

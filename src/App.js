@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import FeedbackOptions from './components/FeedbackOptions';
+import Statistics from './components/Statistics';
+import Section from './components/Section';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0
+  };
+
+  countTotalFeedback = () => {
+    return (this.state.good + this.state.neutral + this.state.bad)
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const total = this.countTotalFeedback();
+    return Math.round((this.state.good * 100) / total);
+  };
+
+  handleIncrement = (evt) => {
+      const feedBackType = evt.target.textContent.toLowerCase();
+      if(feedBackType === 'good') {
+        this.setState((prevState) => ({
+            good: prevState.good + 1,
+        }));
+
+      } else if(feedBackType === 'neutral') {
+        this.setState((prevState) => ({
+            neutral: prevState.neutral + 1,
+        }));
+
+      } else if (feedBackType === 'bad') {
+        this.setState((prevState) => ({
+            bad: prevState.bad + 1,
+        }));
+      };
+  };
+
+  render() {
+    const {good, neutral, bad} = this.state;
+    const total = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage();
+    return (
+        <>
+        <Section title="Please leave feedback">
+        <FeedbackOptions onLeaveFeedback={this.handleIncrement} />
+        <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />
+        </Section>
+        </>
+    )}
 }
 
 export default App;

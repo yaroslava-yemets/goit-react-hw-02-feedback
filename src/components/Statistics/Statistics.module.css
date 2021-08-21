@@ -1,0 +1,27 @@
+.title {
+  font-size: 30px;
+  font-style: italic;
+  color: #0a2e70;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  color: crimson;
+  font-size: 20px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.item {
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  border: 1px solid crimson;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 15px;
+}
