@@ -46,7 +46,7 @@ class App extends Component {
     return (
         <>
         <Section title="Please leave feedback">
-        <FeedbackOptions onLeaveFeedback={this.handleIncrement} />
+        <FeedbackOptions options={['Good', 'Neutral', 'Bad']} onLeaveFeedback={this.handleIncrement} />
         <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />
         </Section>
         </>
