@@ -45,10 +45,10 @@ class App extends Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
         <>
-        <Section title="Please leave feedback">
-        <FeedbackOptions options={['Good', 'Neutral', 'Bad']} onLeaveFeedback={this.handleIncrement} />
-        <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />
-        </Section>
+          <Section title="Please leave feedback">
+            <FeedbackOptions options={['Good', 'Neutral', 'Bad']} onLeaveFeedback={this.handleIncrement} />
+            <Statistics good={good} neutral={neutral} bad={bad} total={total} positivePercentage={positivePercentage} />
+          </Section>
         </>
     )}
 }
